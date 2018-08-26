@@ -5,7 +5,8 @@ ENV VIRTUAL_ENV /env
 ENV PATH /env/bin:$PATH
 
 # Add application code.
+ADD requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
 ADD . /app
-RUN pip install -r /app/requirements.txt
-
 CMD gunicorn -b :8080 gowdock_landing.wsgi
+#EXPOSE 8080:8080
