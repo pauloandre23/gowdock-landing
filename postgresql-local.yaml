@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-pod
+spec:
+  selector:
+    matchLabels:
+      name: postgres-pod
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: postgres-pod
+    spec:
+      containers:
+      - image: postgres
+        name: postgres
+        ports:
+          - containerPort: 5432
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: password
+        volumeMounts:
+          - name: postgres-data
+            mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-data-claim
+---
+# Request a persistent volume from the cluster using a Persistent Volume Claim.
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: postgres-data-claim
+spec:
+  accessModes: 
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5432
+      targetPort: 5432
+      protocol: TCP
+  selector:
+    name: postgres-pod
