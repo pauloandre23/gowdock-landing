@@ -12,6 +12,9 @@ para rodar localmente, rode `gunicorn -b :8080 gowdock_landing.wsgi`
 Kubernetes
 ----------
 
+[Minikube](https://kubernetes.io/docs/tasks/tools/install-kubectl/)  
+[Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) ou [Google Cloud SDK](https://cloud.google.com/sdk/)  
+
 O Dockerfile descreve o container que vai rodar o django.  
 Usaremos um container pronto do postgres, configurando com envs em `postgresql-*.yml`  
 
