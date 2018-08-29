@@ -47,6 +47,8 @@ spec:
                   key: password
             - name: POSTGRES_HOST
               value: postgres-service
+            - name: DB_BACKEND
+              value: 'postgres'
 #        volumeMounts:
 #        - name: secrets
 #          mountPath: /etc/secrets
