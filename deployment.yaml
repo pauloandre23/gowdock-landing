@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: gowdock-landing
-          image: gowdock/landing
+          image: gcr.io/gowdock-ponto-com/gowdock_landing
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
