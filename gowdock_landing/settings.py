@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'gowdock_landing.wsgi.application'
 if os.getenv('DB_BACKEND','sqlite3') == 'postgres':
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgres_psycopg2',
+            'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'gowdock_landing',
             'USER': os.getenv('POSTGRES_USER'),
             'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
@@ -130,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = os.getenv('STATIC_URL','/static/')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     '/landing_page/static/',

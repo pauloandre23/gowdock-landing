@@ -19,7 +19,7 @@ metadata:
   labels:
     name: gowdock-landing-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       name: gowdock-landing-deployment
@@ -38,31 +38,44 @@ spec:
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: postgres-credentials
-                  key: user
+                  name: cloudsql
+                  key: username
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-credentials
+                  name: cloudsql
                   key: password
             - name: POSTGRES_HOST
-              value: postgres-service
+              value: '127.0.0.1'
+            - name: POSTGRES_PORT
+              value: '5432'
             - name: DB_BACKEND
               value: 'postgres'
-#        volumeMounts:
-#        - name: secrets
-#          mountPath: /etc/secrets
-#          readOnly: true
-#        - name: reload
-#          mountPath: /app
-#      volumes:
-#      - name: secrets
-#        secret:
-#          secretName: db-passwords
-#      - name: reload
-#        hostPath:
-#          path: {{ hotreload_directory }}
-#      {% endif %}
+            - name: STATIC_URL
+              value: 'http://storage.googleapis.com/gowdock-landing-static/'
+        - name: gowdock-landing-sqlproxy
+          image: b.gcr.io/cloudsql-docker/gce-proxy:1.05
+          imagePullPolicy: IfNotPresent
+          command: ["/cloud_sql_proxy", "--dir=/cloudsql",
+                  "-instances=gowdock-ponto-com:southamerica-east1:gowdock-landing-db=tcp:5432",
+                  "-credential_file=/secrets/cloudsql/credentials.json"]
+          volumeMounts:
+            - name: cloudsql-oauth-credentials
+              mountPath: /secrets/cloudsql
+              readOnly: true
+            - name: ssl-certs
+              mountPath: /etc/ssl/certs
+            - name: cloudsql
+              mountPath: /cloudsql
+      volumes:
+        - name: cloudsql-oauth-credentials
+          secret:
+            secretName: cloudsql-oauth-credentials
+        - name: ssl-certs
+          hostPath:
+            path: /etc/ssl/certs
+        - name: cloudsql
+          emptyDir:
 ---
 
 # The polls service provides a load-balancing proxy over the polls app
@@ -75,9 +88,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: landing-lb
+  name: docker-landing-lb
   labels:
-    name: landing-lb
+    name: docker-landing-lb
 spec:
   type: LoadBalancer
   ports:
