@@ -130,9 +130,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = os.getenv('STATIC_URL','/static/')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-    '/landing_page/static/',
-)
+### pega a url dos envs, que no kubernetes vai ser a url do bucket onde
+### os statics vao ficar.
+STATIC_URL = os.getenv('STATIC_URL','/static/') 
 
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+#     '/landing_page/static/',
+# )
+
+### caminho para onde collectstatic vai copiar os arquivos estaticos.
+### esses arquivos devem ser copiados para o bucket do gcloud.
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static/')
