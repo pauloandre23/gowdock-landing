@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: gowdock-landing
-          image: gcr.io/gowdock-ponto-com/gowdock_landing
+          image: gcr.io/gowdock-ponto-com/gowdock_landing:master
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
@@ -46,7 +46,7 @@ spec:
                   name: cloudsql
                   key: password
             - name: POSTGRES_HOST
-              value: '127.0.0.1'
+              value: 'localhost'
             - name: POSTGRES_PORT
               value: '5432'
             - name: DB_BACKEND
@@ -54,11 +54,14 @@ spec:
             - name: STATIC_URL
               value: 'http://storage.googleapis.com/gowdock-landing-static/'
         - name: gowdock-landing-sqlproxy
-          image: b.gcr.io/cloudsql-docker/gce-proxy:1.05
+          image: b.gcr.io/cloudsql-docker/gce-proxy
           imagePullPolicy: IfNotPresent
           command: ["/cloud_sql_proxy", "--dir=/cloudsql",
                   "-instances=gowdock-ponto-com:southamerica-east1:gowdock-landing-db=tcp:5432",
                   "-credential_file=/secrets/cloudsql/credentials.json"]
+          securityContext:
+            runAsUser: 2  # non-root user
+            allowPrivilegeEscalation: false
           volumeMounts:
             - name: cloudsql-oauth-credentials
               mountPath: /secrets/cloudsql
