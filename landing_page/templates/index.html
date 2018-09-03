@@ -6,16 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Gowdock - Estamos Chegando</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href='{% static "css/normalize.css" %}' />
     <link rel="stylesheet" type="text/css" media="screen" href='{% static "css/main.css" %}' />
     <script src='{% static "js/main.js" %}'></script>
 </head>
 <body>
+    <section class="section" >
+       
+        <header class="header">
+            <div class="header__logo">
+                <img id="header__logo__img" src='{% static "assets/Logo.png" %}'/>
+            </div>
+        </header>
+         
+        <div class="section__picture">
+            <img id="section__picture__img" src='{% static "assets/ImagemTop.png" %}'/>
+        </div>
 
+        <div class="section__text">
+            <h1></h1>
+            <p></p>
+        </div>
+
+ <!--
         <form action="/" method="post">
             {% csrf_token %}
             {{ form_email }}
-            <input type="submit" value="Submit">
+        <input type="submit" value="Submit">
         </form>
+    -->
+
+    </section>
+
+    <section class="footer">
+
+        <div class="footer__text">
+        </div>
+
+        <div class="footer__picture">
+                <img id="footer__picture__img" src='{% static "assets/ilustraesteira.png" %}'/>
+        </div>
+
+    </section>
+
+
+      
     
 </body>
 </html>
+
