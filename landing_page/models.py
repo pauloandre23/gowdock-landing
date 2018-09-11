@@ -4,7 +4,7 @@ from django.db import models
 
 class CadastroLanding(models.Model):
     nome = models.CharField(max_length=120)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
 
     def __str__(self):
         return "%s - %s" % (self.nome,self.email)
