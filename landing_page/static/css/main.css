@@ -42,9 +42,40 @@ body {
 }
 
 #section__picture__img {
+
     width: 100%;
 }
 
+.containerA3  {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+}
+
+
+.sectionTextA3 img{
+    float: right;
+    width: 100%;
+}
+
+
+.imagemA3 {
+    width: 100%;
+    height: auto;
+}
+
+.containerA2  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+
+.sectionTextA2 img{
+    float: left;
+
+    width: 100%;
+}
 
 .footer {
     display: flex;
@@ -57,4 +88,10 @@ body {
 
 #footer__picture__img {
     width: 100%;
+}
+    
+
+.imagemA2 {
+    width: 100%;
+    height: auto;
 }
