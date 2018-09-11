@@ -1,35 +1,97 @@
- .containerA3  {
+body {
+    box-sizing: border-box;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 25%);
+   
+
+
+    min-height: 100vh;
+    width: 100%;
+}
+
+.header {
+
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 80%;
+    justify-self: end;
+
+}
+
+.header__logo {
+
+    width: 100%;
+    height: 100%;
+    
+}
+
+#header__logo__img {
+    margin-top: 5vh;
+    width: 100%;
+}
+
+.section__picture {
+    grid-column: 2 / 5;
+    grid-row: 1 / 5; 
+    width: 85%;
+    justify-self: end;
+}
+
+#section__picture__img {
+
+    width: 100%;
+}
+
+.containerA3  {
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
 }
 
 
-  .sectionTextA3 img{
+.sectionTextA3 img{
     float: right;
     width: 100%;
 }
 
 
-  .imagemA3 {
+.imagemA3 {
     width: 100%;
     height: auto;
 }
 
-  .containerA2  {
+.containerA2  {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
 
 
-  .sectionTextA2 img{
+.sectionTextA2 img{
     float: left;
+
     width: 100%;
 }
 
+.footer {
+    display: flex;
 
-  .imagemA2 {
+    height: 100vh;
+    width: 100%;
+
+    
+}
+
+#footer__picture__img {
+    width: 100%;
+}
+    
+
+.imagemA2 {
     width: 100%;
     height: auto;
 }

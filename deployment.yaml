@@ -91,13 +91,25 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: docker-landing-lb
+  name: gowdock-landing-service
   labels:
-    name: docker-landing-lb
+    name: gowdock-landing-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 80
     targetPort: 8080
   selector:
     name: gowdock-landing-deployment
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gowdock-landing-ingress
+spec:
+  backend:
+    serviceName: gowdock-landing-service
+    servicePort: 80
+
