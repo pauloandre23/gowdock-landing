@@ -95,3 +95,41 @@ body {
     width: 100%;
     height: auto;
 }
+
+  .headerA2 {
+    font-size: 50px;
+    font-family: Circular Std;
+    font-weight: bold;
+    color: #56000D;
+}
+
+  .headerA3 {
+    font-size: 50px;
+    font-family: Circular Std;
+    font-weight: bold;
+    color: #56000D;
+}
+
+  .textA2 {
+    font-size: 24px;
+    font-family: Circular Std;
+    font-weight: bold;
+    color: #000000;
+}
+
+  .textA3 {
+    font-size: 24px;
+    font-family: Circular Std;
+    font-weight: bold;
+    color: #000000;
+}
+
+  body {
+  opacity: 1;
+  transition: 0.7s opacity;
+}
+
+  .fade {
+  opacity: 0;
+  transition: none;
+}
