@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,30 +11,63 @@
     <link rel="stylesheet" type="text/css" media="screen" href='{% static "css/main.css" %}' />
     <script src='{% static "js/main.js" %}'></script>
 </head>
+
 <body>
-    <section class="section" >
-       
+    <section class="section">
+
         <header class="header">
             <div class="header__logo">
-                <img id="header__logo__img" src='{% static "assets/Logo.png" %}'/>
+                <img id="header__logo__img" src='{% static "assets/Logo.png" %}' />
             </div>
         </header>
-         
+
         <div class="section__picture">
-            <img id="section__picture__img" src='{% static "assets/ImagemTop.png" %}'/>
+            <img id="section__picture__img" src='{% static "assets/ImagemTop.png" %}' />
         </div>
 
-<<<<<<< HEAD
+
+
+        <section class="containerA2">
+
+            <div class="ilustrationA2">
+                <img src='{% static "/assets/Group 4.png" %}' alt="Principal" class="imagemA2" />
+            </div>
+
+            <div class="sectionTextA2">
+                <img src='{% static "assets/Group 21.png" %}' alt="IconeA2" />
+                <h1 class="headerA2">COMPRE ONLINE</h1>
+            </div>
+
+            <p1 class="textA2">Na Gowdock.com, você escolhe seus produtos de supermercado de forma online. </p1>
+
+        </section>
+
+        <section class="containerA3">
+
+            <div class="ilustrationA3">
+                <img src='{% static "/assets/Group 2.png" %}' alt="PrincipalA3" class="imagemA3" />
+            </div>
+
+            <div class="sectionTextA3">
+                <img src='{% static "assets/Group 22.png" %}' alt="IconeA3" />
+                <h1 class="headerA3">PICK UP</h1>
+            </div>
+
+            <p1 class="textA3">Selecione um intervalo para coletá-los e os adquira em um dos nossos pontos de retirada.
+            </p1>
+
+        </section>
+
         <div class="section__text">
             <h1></h1>
             <p></p>
         </div>
 
-    <form action="/" method="post">
-        {% csrf_token %}
-        {{ form_email }}
-    <input type="submit" value="Submit">
-    </form>
+        <form action="/" method="post">
+            {% csrf_token %}
+            {{ form_email }}
+            <input type="submit" value="Submit">
+        </form>
 
     </section>
 
@@ -43,52 +77,13 @@
         </div>
 
         <div class="footer__picture">
-                <img id="footer__picture__img" src='{% static "assets/ilustraesteira.png" %}'/>
+            <img id="footer__picture__img" src='{% static "assets/ilustraesteira.png" %}' />
         </div>
 
     </section>
 
 
-      
-    
-=======
-        <form action="/" method="post">
-            {% csrf_token %}
-            {{ form_email }}
-            <input type="submit" value="Submit">
-        </form>
-        
-    <section class="containerA2">
-      
-      <div class="ilustrationA2">
-        <img src="/assets/Group 4.png" alt="Principal" class="imagemA2" />
-      </div>
 
-      <div class="sectionTextA2">
-        <img src="assets/Group 21.png" alt="IconeA2" />
-        <h1 class="headerA2">COMPRE ONLINE</h1>
-      </div>
-  
-      <p1 class="textA2">Na Gowdock.com, você escolhe seus produtos de supermercado de forma online. </p1>
-  
-    </section>
-  
-    <section class="containerA3">
-      
-      <div class="ilustrationA3">
-        <img src="/assets/Group 2.png" alt="PrincipalA3" class="imagemA3" />
-      </div>
-
-      <div class="sectionTextA3">
-        <img src="assets/Group 22.png" alt="IconeA3" />
-        <h1 class="headerA3">PICK UP</h1>
-      </div>
-  
-      <p1 class="textA3">Selecione um intervalo para coletá-los e os adquira em um dos nossos pontos de retirada. </p1>
-  
-    </section>
-  
->>>>>>> 57a83f4... "Landing page area2"
 </body>
-</html>
 
+</html>
