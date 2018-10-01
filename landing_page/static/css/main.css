@@ -86,6 +86,10 @@ body {
     
 }
 
+.footer__picture {
+    width: 100%;
+} 
+
 #footer__picture__img {
     width: 100%;
 }
