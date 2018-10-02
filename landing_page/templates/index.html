@@ -10,27 +10,79 @@
     <link rel="stylesheet" type="text/css" media="screen" href='{% static "css/normalize.css" %}' />
     <link rel="stylesheet" type="text/css" media="screen" href='{% static "css/main.css" %}' />
     <script src='{% static "js/main.js" %}'></script>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/css/uikit.min.css" /  >
+
 </head>
 
 <body>
     <section class="section">
+    
+        <div class="sideA">
+            <header class="header">
+                <div class="header__logo">
+                    <img id="header__logo__img" src='{% static "assets/Logo.png" %}' />
+                </div>
+            </header>
 
-        <header class="header">
-            <div class="header__logo">
-                <img id="header__logo__img" src='{% static "assets/Logo.png" %}' />
+            <div class="section__text">
+                    <h1>Lorem ipsum. Lorem ipsum</h1>
+                    <h1>Lorem ipsum</h1>
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Etiam eget ligula eu lectus lobortis condimentum.
+                        Aliquam nonummy auctor massa.
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                        Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus.
+                        Nam mattis, felis ut adipiscing."</p>
             </div>
-        </header>
 
-        <div class="section__picture">
-            <img id="section__picture__img" src='{% static "assets/ImagemTop.png" %}' />
+            <div class="call-to-action" uk-toggle="target: .contact; cls: show-form;  animation: uk-animation-fade" >
+
+                <p class="call-to-action__text">Quer saber mais?</p>
+                <img id="call-to-action__img" src='{% static "assets/btn_email.png" %}' /> 
+
+            </div>
+
+            <div class="contact-form contact">
+  
+                <div class="contact-form__header">
+                  <h1 class="contact-form__title"> Deixe seu email. </h1> 
+                  <p class="contact-form__desc"> Nós avisaremos quando estiver pronto! </p>     
+                </div>
+                
+                <div class="contact-form__content">
+                  <form>
+                  
+                    <div class="contact-form__field">
+                        <label> Nome: </label>
+                        <input type="text" id="name-field" />
+                    </div>
+                    
+                    <div class="contact-form__field">
+                        <label> Email: </label>
+                        <input type="email" id="name-field" />
+                    </div>
+                  
+                    <div class="contact-form__button">
+                       <button type="submit"> Enviar </button>
+                    </div>
+                
+                    </form>
+                </div>
+                
+              </div>
+           
+        </div>
+
+        <div class="sideB">
+            <div class="section__picture">
+                <img id="section__picture__img" src='{% static "assets/ImagemTop.png" %}' />
+            </div>
         </div>
 
 
-
-        <div class="section__text">
-            <h1></h1>
-            <p></p>
-        </div>
+       
+        
  <!-- 
         <form action="/" method="post">
             {% csrf_token %}
@@ -85,7 +137,11 @@
 
     </section>
 
+    <div class="contact" id="dark-field" uk-toggle="target: .contact; cls: show-form;  animation: uk-animation-fade"></div>
 
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit-icons.min.js"></script>
 
 </body>
 
