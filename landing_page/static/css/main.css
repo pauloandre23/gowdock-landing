@@ -54,8 +54,8 @@ body {
 
 
 .sectionTextA3 img{
-    float: right;
-    width: 100%;
+    float: none;
+    width: 5%;
 }
 
 
@@ -68,13 +68,13 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: flex-start;
 }
 
 
 .sectionTextA2 img{
-    float: left;
-
-    width: 100%;
+    float: none;
+    width: 5%;
 }
 
 .footer {
@@ -98,13 +98,18 @@ body {
 .imagemA2 {
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    justify-content: center;
 }
+
 
   .headerA2 {
     font-size: 50px;
     font-family: Circular Std;
     font-weight: bold;
     color: #56000D;
+    flex-direction: column;
+    justify-content: center;
 }
 
   .headerA3 {
@@ -112,6 +117,8 @@ body {
     font-family: Circular Std;
     font-weight: bold;
     color: #56000D;
+    flex-direction: column;
+    justify-content: center;
 }
 
   .textA2 {
@@ -119,6 +126,8 @@ body {
     font-family: Circular Std;
     font-weight: bold;
     color: #000000;
+    flex-direction: column;
+    justify-content: center;
 }
 
   .textA3 {
@@ -126,6 +135,9 @@ body {
     font-family: Circular Std;
     font-weight: bold;
     color: #000000;
+    flex-direction: column;
+    justify-content: center;
+    
 }
 
   body {
