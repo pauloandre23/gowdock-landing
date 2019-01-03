@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <section class="section">
+    <section class="section" id="section1">
     
         <div class="sideA">
             <header class="header">
@@ -26,14 +26,11 @@
             </header>
 
             <div class="section__text">
-                    <h1>Lorem ipsum. Lorem ipsum</h1>
-                    <h1>Lorem ipsum</h1>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Etiam eget ligula eu lectus lobortis condimentum.
-                        Aliquam nonummy auctor massa.
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                        Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere eu, lectus.
-                        Nam mattis, felis ut adipiscing."</p>
+                    <h1 >O mundo mudou.</h1>
+                    <h1 id="main__text">Seu mercado também.</h1>
+                    <p>A <em>Gowdock</em> traz uma nova forma de realizar 
+                    suas compras do dia-a-dia, mais prática, mais rápida 
+                    e mais fácil. </p>
             </div>
 
             <div class="call-to-action" uk-toggle="target: .contact; cls: show-form;  animation: uk-animation-fade" >
@@ -72,6 +69,9 @@
             </div>
         </div>
 
+        <div class="nav__button">
+            <a href = "#section2" uk-scroll > <img id="nav__button_img" src='{% static "assets/Group 26.png" %}' /> </a> 
+        </div>
 
        
         
@@ -81,10 +81,10 @@
     </section>
 
     
-    <section class="sectionCommon">
+    <section class="sectionCommon" id="section2">
 
-        <div class="imageSide">
-            <img src='{% static "/assets/Group 4.png" %}' alt="Principal" uk-scrollspy="cls: uk-animation-slide-left; delay: 200" class="imagemS2" /> 
+        <div class="imageSide" uk-scrollspy="cls: uk-animation-slide-left; delay: 10">
+            <img src='{% static "/assets/Group 4.png" %}' alt="Principal"  class="imagemS2" /> 
         </div>
 
         <div class="textSide">
@@ -97,21 +97,18 @@
             <p class="text__sections">Na <em>Gowdock.com</em>, você escolhe seus produtos de supermercado de forma online. </p>
 
         </div>
-    
-    
-
-    
+        
     
     </section>
 
 
-    <section class="sectionCommon">
+    <section class="sectionCommon" id="section3">
 
         <div class="textSide">
        
-            <div class='title_right'>
+            <div class='title_right title_small title_end'>
+                <h1 class="headerA2">RETIRADA</h1>
                 <img src='{% static "assets/Group 22.png" %}' alt="Compra online" />
-                <h1 class="headerA2">PICK UP</h1>
             </div>
             
             <p class="text__sections">Selecione um intervalo para coletá-los e os adquira em um dos nossos pontos de retirada. </p>
@@ -119,8 +116,8 @@
         </div>
 
 
-        <div class="imageSide" uk-scrollspy="cls: uk-animation-slide-right; delay: 200">
-             <img src='{% static "/assets/Group 2.png" %}' alt="PrincipalA3" class="imagemS2" /> 
+        <div class="imageSide" uk-scrollspy="cls: uk-animation-slide-right; delay: 10">
+             <img src='{% static "/assets/Group 2.png" %}' alt="PrincipalA3" class="imagemS3" /> 
         </div>
     
     </section>
@@ -129,12 +126,23 @@
     <section class="footer">
 
         <div class="footer__text">
+                <div class='title_right title_small'>
+                        <img src='{% static "assets/Group 5.png" %}' alt="Compra online" />
+                        <h1 class="headerA2">SEM FILAS</h1>
+                    </div>
+                    
+                    <p class="text__sections"> Assim você evita atraso na entrega de produtos e tempo gasto com filas </p>
+        
         </div>
 
         <div class="footer__picture">
             <img id="footer__picture__img" src='{% static "assets/ilustraesteira.png" %}' />
         </div>
 
+        <div class="nav__button_footer">
+                <a href = "#section1" uk-scroll > <img id="nav__button_img" src='{% static "assets/Group 25.png" %}' /> </a> 
+        </div>
+    
     </section>
 
     <div class="contact" id="dark-field" uk-toggle="target: .contact; cls: show-form;  animation: uk-animation-fade"></div>
